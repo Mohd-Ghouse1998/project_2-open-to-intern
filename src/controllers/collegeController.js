@@ -12,7 +12,7 @@ const isValid = function (value, type) {
 const isValidName = function (value, type) {
     if (typeof value === 'undefined' || value === null) return false
     if (typeof value === 'string' && (value.trim().length === 0 || value.trim().split(" ").length > 1)) return false
-    if (typeof value != type) return false
+   if (typeof value != type) return false
     return true;
 }
 
@@ -77,7 +77,7 @@ const getCollegeDetails = async function (req, res) {
     try {
         const name = req.query.collegeName
         // validation starts
-        if (!isValidName(name)) {
+        if (!isValidName(name ,"string")) {
             res.status(400).send({ status: true, message: "college name is required for college details and should be abbreviated with no spaces" })
             return
         }
